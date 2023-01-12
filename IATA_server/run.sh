@@ -1,0 +1,1 @@
+docker run --rm -it -p 5002:5002 --name iata_server iata:1.0

@@ -1,0 +1,1 @@
+docker run --rm -it -p 80:80 --name unleash_clint react2

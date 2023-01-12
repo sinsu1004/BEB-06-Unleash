@@ -43,7 +43,7 @@ const Header = () => {
         // 탭을 처음킨건 아니지만
         // 로그아웃 된 상태 // 이미 logout 상태면 approve 할 필요가 없음
         axios
-          .get('http://localhost:5001/user/approve', {
+          .get('http://43.200.166.146:5001/user/approve', {
             withCredentials: true,
           })
           .then(res => {
@@ -72,7 +72,7 @@ const Header = () => {
               logout();
             }
           });
-        console.log(userData);
+       
       }
     }
   };
@@ -98,7 +98,6 @@ const Header = () => {
 
   const connectWallet = async () => {
     try {
-      console.log('here');
       const { ethereum } = window;
 
       if (!ethereum) {
@@ -121,7 +120,7 @@ const Header = () => {
       });
       let data = { wallet_address: accounts[0] };
       axios
-        .post('http://localhost:5001/user/login', data, {
+        .post('http://43.200.166.146:5001/user/login', data, {
           withCredentials: true,
         })
         .then(function (res) {
@@ -159,7 +158,7 @@ const Header = () => {
     localStorage.setItem('isLogout', true);
     navigate(`/mainpage`);
     axios
-      .get('http://localhost:5001/user/logout', {
+      .get('http://43.200.166.146:5001/user/logout', {
         withCredentials: true,
       })
       .catch(e => e);

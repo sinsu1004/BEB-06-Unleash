@@ -119,9 +119,8 @@ function Signup() {
     data["wallet_address"] = account;
     data["birth"] = birth;
 
-    axios.post('http://localhost:5001/user/joinMembership', data )
+    axios.post('http://43.200.166.146:5001/user/joinMembership', data )
     .then(function(res){
-      console.log(res);
       Swal.fire({
         position: 'top-end',
         icon: 'success',

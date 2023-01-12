@@ -1,0 +1,1 @@
+docker run --rm -it -p 5001:5001 --name unleash_server unleash

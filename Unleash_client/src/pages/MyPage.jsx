@@ -13,8 +13,8 @@ const MyPage = () => {
   const { active, setActive } = context;
   const [active2, setActive2] = useState(false);
 
-  const contractAddress = "0x62b32166F925FA3f7a0b01B87c4354ab5A488018";
-  const marketContractAddress = "0x36358ebbd6550f2277B2F5A9261ee03A812072d7";
+  const contractAddress = "0x951A005bbF1fBB90aeF00B29F5606805E647bDcA";
+  const marketContractAddress = "0x8209ca01C432487c1d494A7E7104F447E45F01A2";
 
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();

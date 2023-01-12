@@ -14,7 +14,7 @@ const DefaultNft = (props) => {
   const arr = Array.from(Array(11));
   const [active, setActive1] = useState(false);
 
-  const marketContractAddress = "0x36358ebbd6550f2277B2F5A9261ee03A812072d7";
+  const marketContractAddress = "0x8209ca01C432487c1d494A7E7104F447E45F01A2";
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const contract = new Contract(marketContractAddress, MarketAbi, signer);
@@ -73,7 +73,7 @@ const DefaultNft = (props) => {
           timer: 1500
         })
         setActive(false)
-        axios.put("http://localhost:5001/marketplace/cancel", {
+        axios.put("http://43.200.166.146:5001/marketplace/cancel", {
           event_id:parseInt(eventLogs[1].args.event_count,16),
           offer_id : offer_id,
           amount : amount,

@@ -16,7 +16,7 @@ const FirstNFT = (props) => {
   const glare2 = "rgb(255, 119, 115) 10%, rgba(255,237,95,1) 20%, rgba(168,255,95,1) 30%, rgba(131,255,247,1) 40%, rgba(120,148,255,1) 50%, rgb(216, 117, 255) 60%, rgb(255, 119, 115) 70%, rgb(255, 119, 115) 80%, rgba(255,237,95,1) 90%, rgba(168,255,95,1) 100%"
   const [active, setActive1] = useState(false);
 
-  const marketContractAddress = "0x36358ebbd6550f2277B2F5A9261ee03A812072d7";
+  const marketContractAddress = "0x8209ca01C432487c1d494A7E7104F447E45F01A2";
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const contract = new Contract(marketContractAddress, MarketAbi, signer);
@@ -75,7 +75,7 @@ const FirstNFT = (props) => {
           timer: 1500
         })
         setActive(false);
-        axios.put("http://localhost:5001/marketplace/cancel", {
+        axios.put("http://43.200.166.146:5001/marketplace/cancel", {
           event_id:parseInt(eventLogs[1].args.event_count,16),
           offer_id : offer_id,
           amount : amount,

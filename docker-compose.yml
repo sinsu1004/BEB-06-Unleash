@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  unleash_server:
+    image: "sinsu/unleash"
+    ports:
+      - "5001:5001"
+
+  iata_server:
+    image: "sinsu/iata"
+    ports:
+      - "5002:5002"
+   
+  unleash_client:
+    image: "sinsu/react"
+    ports:
+      - "3000:3000"
+# build 부분 설명
+  # express-app2:
+  #   build: .
+  #   image: "express-example:1.0"
+  #   ports:
+  #     - "3000:80"
+  #   volumes:
+  #     - ./src:/usr/src/app/src
+  #   container_name: express-app2
+
+  # ganache:
+  #   image: "trufflesuite/ganache:latest"
+  #   ports:
+  #     - "8545:8545"
+
+# 볼륨실습
+# 서비스2 띄우기 실습
+# docker-hub에서 이미지 찾아서 실습 -> ganache
+# 개발 환경 = 굳이 Dockerfile 없어도 됨

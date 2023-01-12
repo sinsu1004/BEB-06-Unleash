@@ -33,7 +33,6 @@ const MainPage = () => {
 
   const onChangeDepartDate = e => {
     setDepartDate(e);
-    console.log(departDate);
     setDepartDateOpen(false);
   };
 
@@ -49,7 +48,6 @@ const MainPage = () => {
   const onClickToValue = e => {
     if (e) e.stopPropagation();
     let value = e.currentTarget.attributes.value.value;
-    console.log(value);
     setToPlace(value);
     setToPlaceSelectBox(false);
   };
@@ -62,13 +60,12 @@ const MainPage = () => {
 
   const onClickSearch = () => {
     let To = ToBox[toPlace];
-    console.log(To);
     let params = { from: 'ICN' };
     params['to'] = To;
     params['departuretime'] = new Date(departDate.getTime() - departDate.getTimezoneOffset() * 60000).toISOString().substr(0, 11);
 
     axios
-      .get('http://localhost:5001/marketplace/ticket', { params })
+      .get('http://43.200.166.146:5001/marketplace/ticket', { params })
       .then(function (res) {
         const data = res.data;
         const list = JSON.stringify([...data]);

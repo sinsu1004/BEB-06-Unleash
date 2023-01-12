@@ -21,7 +21,7 @@ import {
 import axios from "axios";
 
 function DidCertification(props) {
-  const erc1155Address = "0x62b32166F925FA3f7a0b01B87c4354ab5A488018"
+  const erc1155Address = "0x951A005bbF1fBB90aeF00B29F5606805E647bDcA"
   // const erc1155ABI = "abi data"
   const context = useContext(ListContext);
   const { userData , selectedNft } = context;
@@ -151,7 +151,7 @@ function DidCertification(props) {
     }
   };
 
-  // VC 요청
+  // DID VC는 SSI를 실형하기 위해 유저가 보관해야 한다는 피드백으로 DB에 저장된 VC JWT 요청 API 삭제
   const requestVC = async () => {
     try {
       // IATA DB에 내 JWT VC 요청
@@ -217,7 +217,6 @@ function DidCertification(props) {
       setUserData(userInfo);
       
     } catch (error) {
-      console.log(error);
       Swal.fire({
         position: 'top-end',
         icon: 'error',
@@ -227,10 +226,11 @@ function DidCertification(props) {
       })
     }
   };
+
+  
   // VC 검증
   const verifyVC = async() => {
     try {
-      // 유저가 제출한 JWT VC와 IATA가 발급해준 ID 비교
       // setVerifyMsg("Verifiable Credential 검증 진행...")
       props.setDidLoading(true);
       props.setText( "승인 처리중입니다 약 1~2분 정도 소요되며, 이더리움 Goerli 네트워크 상태에 따라 지연될수 있습니다.");
@@ -266,9 +266,8 @@ function DidCertification(props) {
       )
       const rxResult = await tx.wait();
 
-      console.log(rxResult);
       if (rxResult) {
-      await axios.put("http://localhost:5001/marketplace/exchange", {
+      await axios.put("http://43.200.166.146:5001/marketplace/exchange", {
         amount : 1,
         user_id : userData.id,
         token_id : selectedNft[0].token_id,
@@ -276,7 +275,6 @@ function DidCertification(props) {
       }, {
         withCredentials: true
       }).catch(e => {
-        console.log(e);
         return;
       })
 

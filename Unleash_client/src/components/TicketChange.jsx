@@ -6,7 +6,6 @@ const TicketChange = (props) => {
   const context = useContext(ListContext);
   const {  selectedNft } = context;
 
-    console.log(selectedNft[0].token.departuretime.substr(0,10) + " " + selectedNft[0].token.departuretime.substr(11,2) + ":00" );
 
     return (
        <div className="ticket-system">

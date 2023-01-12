@@ -39,7 +39,7 @@ const MarketPlaceAside = () => {
     let params = {  "from" : "ICN" };
     params["to"] = To;
     params["departuretime"] = new Date(departDate.getTime() - (departDate.getTimezoneOffset() * 60000)).toISOString().substr(0, 11);
-    axios.get('http://localhost:5001/marketplace/ticket', {params} )
+    axios.get('http://43.200.166.146:5001/marketplace/ticket', {params} )
     .then(res => {
       const data = res.data;
       const list = JSON.stringify([...data]);

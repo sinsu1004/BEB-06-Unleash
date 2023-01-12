@@ -30,7 +30,7 @@ const MyPageContents = () => {
     setBs('sell');
     setBs2('change');
     axios
-      .get(`http://localhost:5001/user/owned?user_id=${userData.id}`, {
+      .get(`http://43.200.166.146:5001/user/owned?user_id=${userData.id}`, {
         withCredentials: true,
       })
       .then(res => {
@@ -83,7 +83,7 @@ const MyPageContents = () => {
       setBs('sell');
       setBs2('change');
       axios
-        .get(`http://localhost:5001/user/owned?user_id=${userData.id}`, {
+        .get(`http://43.200.166.146:5001/user/owned?user_id=${userData.id}`, {
           withCredentials: true,
         })
         .then(res => {
@@ -108,7 +108,7 @@ const MyPageContents = () => {
       setBs2('retrieve');
       axios
         .get(
-          `http://localhost:5001/user/selling?seller=${userData.wallet_address}`,
+          `http://43.200.166.146:5001/user/selling?seller=${userData.wallet_address}`,
           {
             withCredentials: true,
           }
@@ -133,7 +133,7 @@ const MyPageContents = () => {
       setBs('');
       setBs2('');
       setBorder([false, false, true, false]);
-      axios.get(`http://localhost:5001/user/used?seller=${userData.wallet_address}`, {
+      axios.get(`http://43.200.166.146:5001/user/used?seller=${userData.wallet_address}`, {
         withCredentials: true,
       })
       .then(res => {
@@ -157,7 +157,7 @@ const MyPageContents = () => {
       setBorder([false, false, false, true]);
       axios
       .get(
-        `http://localhost:5001/user/selled?seller=${userData.wallet_address}`,
+        `http://43.200.166.146:5001/user/selled?seller=${userData.wallet_address}`,
         {
           withCredentials: true,
         }

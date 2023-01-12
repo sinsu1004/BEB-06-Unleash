@@ -1,0 +1,27 @@
+{
+  "config": {
+    "target": "http:43.200.166.146:5001",
+    "phases": [
+      {
+        "duration": 60,
+        "arrivalRate": 100
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "flow": [
+        {
+          "get": {
+            "url": "/marketplace/ticket"
+          }
+        },
+        {
+          "get": {
+            "url": "/marketplace/market"
+          }
+        }
+      ]
+    }
+  ]
+}

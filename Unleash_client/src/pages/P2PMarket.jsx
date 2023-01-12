@@ -15,7 +15,7 @@ const P2PMarket = () => {
   const [economy, setEconomy] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5001/marketplace/market").then(res => {
+    axios.get("http://43.200.166.146:5001/marketplace/market").then(res => {
       const data2 = res.data;
       setP2pMarketList(() => [...data2]);
     }).catch((e) => {

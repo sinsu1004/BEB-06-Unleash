@@ -15,7 +15,7 @@ app.listen(port, () => {
 });
 
 app.get("/", async (req, res) => {
-  res.json(await test());
+  res.send("성공");
 });
 
 require("./controller/scandb.controller");

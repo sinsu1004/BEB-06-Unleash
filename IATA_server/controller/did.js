@@ -156,45 +156,46 @@ module.exports = {
     }
   },
 
-  requestVC: async (req, res) => {
-    let responseData;
-    try {
-      const { walletAddress } = req.body;
+  // DID VC는 SSI를 실형하기 위해 유저가 보관해야 한다는 피드백으로 DB에 저장된 VC JWT 요청 API 삭제
+  // requestVC: async (req, res) => {
+  //   let responseData;
+  //   try {
+  //     const { walletAddress } = req.body;
 
-      // Create Holder DID
-      const subjectDid = new EthrDID({
-        chainNameOrId,
-        identifier: walletAddress,
-      });
+  //     // Create Holder DID
+  //     const subjectDid = new EthrDID({
+  //       chainNameOrId,
+  //       identifier: walletAddress,
+  //     });
 
-      const vcInfo = await db['vc_list'].findOne({
-        where: {
-          did: subjectDid.did,
-        },
-      });
+  //     const vcInfo = await db['vc_list'].findOne({
+  //       where: {
+  //         did: subjectDid.did,
+  //       },
+  //     });
 
-      // RETURN : vc 정보가 없을 경우 return Error
-      if (vcInfo == null) {
-        responseData = {
-          vc: null,
-        };
-        return res.status(204).send(responseData);
-      }
+  //     // RETURN : vc 정보가 없을 경우 return Error
+  //     if (vcInfo == null) {
+  //       responseData = {
+  //         vc: null,
+  //       };
+  //       return res.status(204).send(responseData);
+  //     }
 
-      responseData = {
-        vc: vcInfo.vc,
-      };
-      return res.status(200).send(responseData);
-    } catch (error) {
-      console.log(`Request VC API ERROR : ${error}`);
-      responseData = {
-        ok: false,
-        message: 'Request VC API ERROR',
-        data: {
-          error: error,
-        },
-      };
-      return res.status(404).send(responseData);
-    }
-  },
+  //     responseData = {
+  //       vc: vcInfo.vc,
+  //     };
+  //     return res.status(200).send(responseData);
+  //   } catch (error) {
+  //     console.log(`Request VC API ERROR : ${error}`);
+  //     responseData = {
+  //       ok: false,
+  //       message: 'Request VC API ERROR',
+  //       data: {
+  //         error: error,
+  //       },
+  //     };
+  //     return res.status(404).send(responseData);
+  //   }
+  // },
 };

@@ -22,7 +22,7 @@ const DetailInfo = props => {
   const [number, setNumber] = useState('');
   const nft = JSON.parse(localStorage.getItem('airlineNFT'));
 
-  const contractAddress = '0x62b32166F925FA3f7a0b01B87c4354ab5A488018';
+  const contractAddress = '0x951A005bbF1fBB90aeF00B29F5606805E647bDcA';
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const contract = new Contract(contractAddress, Abi, signer);
@@ -69,7 +69,7 @@ const DetailInfo = props => {
     e.preventDefault();
     try {
       const call = await axios.get(
-        `http://localhost:5001/marketplace/signature?token_id=${Number(
+        `http://43.200.166.146:5001/marketplace/signature?token_id=${Number(
           nft[0].token_id
         )}`,
         {
@@ -104,7 +104,7 @@ const DetailInfo = props => {
         })
         setActive(false);
         const a = await axios.post(
-          'http://localhost:5001/marketplace/mint',
+          'http://43.200.166.146:5001/marketplace/mint',
           {
             event_id:parseInt(eventLogs[2].args.event_count,16),
             user_id: userData.id,

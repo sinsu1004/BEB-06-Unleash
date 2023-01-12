@@ -1,0 +1,1 @@
+docker build -t iata:1.0 .
